@@ -24,16 +24,9 @@ otp 12345
 
 ```bash
 Access Bank
-Account number: 0690000004
+Account number: 0690000031
 otp: 12345
 ```
-
-```bash
-Providus Bank
-Account number: 5900102340, 5900002567
-otp: 12345
-```
-
 For [More Test Cards](https://flutterwavedevelopers.readme.io/docs/test-cards)
 For [More Test Bank Accounts](https://flutterwavedevelopers.readme.io/docs/test-bank-accounts)
 
