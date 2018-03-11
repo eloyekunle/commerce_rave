@@ -162,9 +162,10 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
     $response = json_decode($response, TRUE);
 
     $merchantTransactionReference = $response['tx']['txRef'];
+    $raveTransactionReference = $response['tx']['flwRef'];
 
-    if ($merchantTransactionReference) {
-      $verifyTransaction = $this->verifyTransaction($merchantTransactionReference);
+    if ($raveTransactionReference) {
+      $verifyTransaction = $this->verifyTransaction($raveTransactionReference);
       $transactionStatus = $verifyTransaction['status'];
 
       if ($transactionStatus) {
@@ -238,7 +239,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
     $logger->notice('Verifying Transaction: ' . $referenceNumber);
 
     $data = [
-      'tx_ref' => $referenceNumber,
+      'flw_ref' => $referenceNumber,
       'SECKEY' => $this->getSecretKey(),
       'normalize' => '1'
     ];
