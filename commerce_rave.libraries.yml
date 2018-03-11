@@ -1,0 +1,18 @@
+rave_staging:
+  version: VERSION
+  js:
+    "http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js": {}
+
+rave_live:
+  version: VERSION
+  js:
+    "https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js": {}
+
+rave:
+  version: VERSION
+  js:
+    js/commerce_rave.form.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

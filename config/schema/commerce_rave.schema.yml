@@ -1,0 +1,18 @@
+commerce_payment.commerce_payment_gateway.plugin.rave_iframe:
+  type: commerce_payment_gateway_configuration
+  mapping:
+    public_key:
+      type: string
+      label: 'Public Key'
+    secret_key:
+      type: string
+      label: 'Secret Key'
+    payment_flow:
+      type: string
+      label: 'Payment Flow'
+    pay_button_text:
+      type: string
+      label: 'Pay Button Text'
+    txref_prefix:
+      type: string
+      label: 'Transaction Reference Prefix'
