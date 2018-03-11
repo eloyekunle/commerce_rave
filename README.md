@@ -39,7 +39,7 @@ For [More Test Bank Accounts](https://flutterwavedevelopers.readme.io/docs/test-
 
 ## Credits
 
-- [Elijah Oyekunle][link-author]
+- [Elijah Oyekunle](https://github.com/playmice)
 
 ## Contributing
 Please feel free to fork this package and contribute by submitting a pull request to enhance the functionalities.
