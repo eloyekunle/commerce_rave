@@ -1,7 +1,0 @@
-name: Commerce Rave
-type: module
-description: 'Provides Drupal Commerce integration for Flutterwave Rave.'
-package: Commerce
-core: 8.x
-dependencies:
-  - commerce:commerce_payment
