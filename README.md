@@ -32,7 +32,7 @@ This module requires the following:
 ```
 composer require 'drupal/commerce_rave:^1.0'
 ```
-You can also install with Drush:
+* You can also install with Drush:
 ```
 drush en commerce_rave -y
 ```
@@ -56,10 +56,10 @@ For more information about installing Drupal Modules:
     - Rave also provides some test bank accounts for testing:
       [https://flutterwavedevelopers.readme.io/docs/test-bank-accounts](https://flutterwavedevelopers.readme.io/docs/test-bank-accounts)
 * Checkout workflow:
-  It follows the Drupal Commerce Credit Card workflow.
+  - It follows the Drupal Commerce Credit Card workflow.
   The customer should enter his/her credit card data or bank account info.
-* Payment Terminal
-  The store owner can view the Rave payments.
+* Payment Terminal:
+  - The store owner can view the Rave payments.
 
 ## To Do
 - [ ] Save Credit Cards data to User account after first use.
