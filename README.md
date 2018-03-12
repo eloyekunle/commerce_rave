@@ -19,7 +19,7 @@ Signup for an account [here](https://rave.flutterwave.com).
 * For a full description of the module, visit the project page:
   [https://www.drupal.org/project/commerce_rave](https://www.drupal.org/project/commerce_rave)
 * To submit bug reports and feature suggestions, or to track changes:
-  https://www.drupal.org/project/issues/commerce_rave
+  [https://www.drupal.org/project/issues/commerce_rave](https://www.drupal.org/project/issues/commerce_rave)
 
 ## Requirements
 This module requires the following:
@@ -39,8 +39,8 @@ drush en commerce_rave -y
 which will download and enable the module automatically.
 
 For more information about installing Drupal Modules: 
-* https://www.drupal.org/docs/8/extending-drupal-8/installing-drupal-8-modules
-* https://www.drupal.org/docs/user_guide/en/extend-module-install.html
+* [https://www.drupal.org/docs/8/extending-drupal-8/installing-drupal-8-modules](https://www.drupal.org/docs/8/extending-drupal-8/installing-drupal-8-modules)
+* [https://www.drupal.org/docs/user_guide/en/extend-module-install.html](https://www.drupal.org/docs/user_guide/en/extend-module-install.html)
 
 ## Configuration
 
@@ -49,12 +49,12 @@ For more information about installing Drupal Modules:
 * General considerations:
   - The store owner must have a Rave merchant account.
     Sign up here:
-    https://rave.flutterwave.com
+    [https://rave.flutterwave.com](https://rave.flutterwave.com)
   - Customers should have a valid credit card/bank account.
     - Rave provides some test credit card numbers for testing:
-      https://flutterwavedevelopers.readme.io/docs/test-cards
+      [https://flutterwavedevelopers.readme.io/docs/test-cards](https://flutterwavedevelopers.readme.io/docs/test-cards)
     - Rave also provides some test bank accounts for testing:
-      https://flutterwavedevelopers.readme.io/docs/test-bank-accounts
+      [https://flutterwavedevelopers.readme.io/docs/test-bank-accounts](https://flutterwavedevelopers.readme.io/docs/test-bank-accounts)
 * Checkout workflow:
   It follows the Drupal Commerce Credit Card workflow.
   The customer should enter his/her credit card data or bank account info.
@@ -75,4 +75,4 @@ Please see [License File](LICENSE.txt) for more information.
 
 ## Credits
 
-- [Elijah Oyekunle](https://github.com/playmice) - [Twitter](https://twitter.com/elijahoyekunle) - [Drupal.org](https://www.drupal.org/u/elijahoyekunle) - [Home Page](https://elijahoyekunle.com)
+- [Elijah Oyekunle](https://elijahoyekunle.com) - [Twitter](https://twitter.com/elijahoyekunle) - [Drupal.org](https://www.drupal.org/u/elijahoyekunle) - [Github](https://github.com/playmice)
