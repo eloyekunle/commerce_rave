@@ -4,10 +4,13 @@
 
 Go to [Flutterwave Rave](https://ravepay.co) to get your public and private key
 
+
+## Introduction
+
+## Requirements
+
 ## Installation
 [Install](https://www.drupal.org/docs/8/extending-drupal-8/installing-drupal-8-modules) as a regular Drupal Module.
-
-More documentation coming soon. 
 
 >Test Card
 
@@ -30,19 +33,18 @@ otp: 12345
 For [More Test Cards](https://flutterwavedevelopers.readme.io/docs/test-cards)
 For [More Test Bank Accounts](https://flutterwavedevelopers.readme.io/docs/test-bank-accounts)
 
-## Credits
-
-- [Elijah Oyekunle](https://github.com/playmice)
+## Configuration
 
 ## Contributing
 Please feel free to fork this package and contribute by submitting a pull request to enhance the functionalities.
 
-
-Kindly star the GitHub repo and share ❤️.  I ❤️ Flutterwave
-
-Kindly [follow me on twitter](https://twitter.com/elijahoyekunle)!
+Kindly star the GitHub repo if you find it useful.
 
 
 ## License
 
 Please see [License File](LICENSE.txt) for more information.
+
+## Credits
+
+- [Elijah Oyekunle](https://github.com/playmice) [Twitter](https://twitter.com/elijahoyekunle) [Drupal.org](https://www.drupal.org/u/elijahoyekunle) [Home Page](https://elijahoyekunle.com)
