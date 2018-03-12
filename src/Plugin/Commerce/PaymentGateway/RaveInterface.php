@@ -32,3 +32,4 @@ interface RaveInterface extends OffsitePaymentGatewayInterface {
 }
 
 // @todo implement RefundInterface for refunding payments.
+// @todo implement Webhook to receive payment notifications from Rave
