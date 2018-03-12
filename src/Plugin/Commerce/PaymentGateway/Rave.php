@@ -3,10 +3,8 @@
 namespace Drupal\commerce_rave\Plugin\Commerce\PaymentGateway;
 
 use Drupal\commerce_order\Entity\OrderInterface;
-use Drupal\commerce_payment\Entity\PaymentInterface;
 use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayBase;
-use Drupal\commerce_price\Price;
 use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Client;
@@ -204,27 +202,6 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
     } else {
       throw new PaymentGatewayException('Cannot find Transaction Reference in request.');
     }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function capturePayment(PaymentInterface $payment, Price $amount = NULL) {
-    // TODO: Implement capturePayment() method.
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function refundPayment(PaymentInterface $payment, Price $amount = NULL) {
-    // TODO: Implement refundPayment() method.
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function voidPayment(PaymentInterface $payment) {
-    // TODO: Implement voidPayment() method.
   }
 
   /**

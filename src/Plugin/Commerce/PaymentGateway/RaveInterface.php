@@ -3,14 +3,11 @@
 namespace Drupal\commerce_rave\Plugin\Commerce\PaymentGateway;
 
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayInterface;
-use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\SupportsAuthorizationsInterface;
-use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\SupportsRefundsInterface;
-use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\SupportsStoredPaymentMethodsInterface;
 
 /**
  * Provides the interface for the Stripe payment gateway.
  */
-interface RaveInterface extends OffsitePaymentGatewayInterface, SupportsAuthorizationsInterface, SupportsRefundsInterface {
+interface RaveInterface extends OffsitePaymentGatewayInterface {
 
   /**
    * Get the Stripe API Publisable key set for the payment gateway.
@@ -33,3 +30,5 @@ interface RaveInterface extends OffsitePaymentGatewayInterface, SupportsAuthoriz
   public function verifyTransaction($referenceNumber): array;
 
 }
+
+// @todo implement RefundInterface for refunding payments.
