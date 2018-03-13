@@ -32,7 +32,7 @@ This module requires the following:
 ```
 composer require 'drupal/commerce_rave:^1.0'
 ```
-* You can also install with Drush:
+* You can also install with [Drush](https://www.drupal.org/node/2603018):
 ```
 drush en commerce_rave -y
 ```
@@ -43,7 +43,16 @@ For more information about installing Drupal Modules:
 * [https://www.drupal.org/docs/user_guide/en/extend-module-install.html](https://www.drupal.org/docs/user_guide/en/extend-module-install.html)
 
 ## Configuration
-
+* Create a new Rave payment gateway.  
+  *Administration > Commerce > Configuration > Payment gateways > Add payment gateway*  
+  Rave-specific settings available:
+  - Secret key
+  - Public key
+  - Payment Flow (iFrame or [Hosted Payment Pages](https://flutterwavedevelopers.readme.io/docs/validate-payment-without-internet))
+  
+  Use the API credentials provided by your Rave merchant account. It is
+  recommended to enter test credentials and then override these with live
+  credentials in settings.php. This way, live credentials will not be stored in the db.
 
 ## How It Works
 * General considerations:
@@ -58,6 +67,10 @@ For more information about installing Drupal Modules:
 * Checkout workflow:
   - It follows the Drupal Commerce Credit Card workflow.
   The customer should enter his/her credit card data or bank account info.
+  - The Rave modal uses the site information to configure the modal automatically with:
+    - Title
+    - Description
+    - Site Logo
 * Payment Terminal:
   - The store owner can view the Rave payments.
 
