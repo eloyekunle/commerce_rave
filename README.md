@@ -1,4 +1,4 @@
-# Flutterwave Rave (Drupal 8 Module)
+# Commerce Rave
 
 CONTENTS
 ---------------------
