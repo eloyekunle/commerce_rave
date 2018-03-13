@@ -30,8 +30,8 @@ class PaymentOffsiteForm extends BasePaymentOffsiteForm {
     $gateway_mode = $plugin->getMode();
     $payment_flow = $plugin->getPaymentFlow();
     $order = $payment->getOrder();
-    /** @var \Drupal\address\Plugin\Field\FieldType\AddressItem $billing_address */
-    $billing_address = $order->getBillingProfile()->get('address')->first();
+      /** @var \Drupal\address\Plugin\Field\FieldType\AddressItem $billingAddress */
+      $billingAddress = $order->getBillingProfile()->get('address')->first();
 
     if ($gateway_mode == 'live') {
       $form['#attached']['library'][] = 'commerce_rave/rave_live';
@@ -45,12 +45,12 @@ class PaymentOffsiteForm extends BasePaymentOffsiteForm {
       "PBFPubKey" => $plugin->getPublicKey(),
       "amount" => $payment_amount,
       "customer_email" => $order->getEmail(),
-      "customer_firstname" => $billing_address->getGivenName(),
-      "customer_lastname" => $billing_address->getFamilyName(),
+        "customer_firstname" => $billingAddress->getGivenName(),
+        "customer_lastname" => $billingAddress->getFamilyName(),
       "custom_logo" => Url::fromUri('internal:' . theme_get_setting('logo.url'), ['absolute' => TRUE])->toString(),
       "txref" => $plugin->getTransactionReferencePrefix() . '-' . $payment->getOrderId(),
       "payment_method" => 'both',
-      "country" => $billing_address->getCountryCode(),
+        "country" => $billingAddress->getCountryCode(),
       "currency" => $payment->getAmount()->getCurrencyCode(),
       "custom_title" => \Drupal::config('system.site')->get('name'),
       "custom_description" => \Drupal::config('system.site')->get('slogan'),
