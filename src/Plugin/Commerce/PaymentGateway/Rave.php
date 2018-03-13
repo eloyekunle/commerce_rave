@@ -5,7 +5,6 @@ namespace Drupal\commerce_rave\Plugin\Commerce\PaymentGateway;
 use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayBase;
-use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
@@ -46,26 +45,42 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
     return $this->configuration['secret_key'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getPublicKey() {
     return $this->configuration['public_key'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getPaymentFlow() {
     return $this->configuration['payment_flow'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getPayButtonText() {
     return $this->configuration['pay_button_text'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getTransactionReferencePrefix() {
     return $this->configuration['txref_prefix'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getBaseUrl() {
     if ($this->getMode() == 'live') {
       return self::RAVE_LIVE_URL;
-    } else {
+    }
+    else {
       return self::RAVE_STAGING_URL;
     }
   }
@@ -75,12 +90,12 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
    */
   public function defaultConfiguration() {
     return [
-        'public_key' => '',
-        'secret_key' => '',
-        'payment_flow' => 'iframe',
-        'pay_button_text' => '',
-        'txref_prefix' => 'rave'
-      ] + parent::defaultConfiguration();
+      'public_key' => '',
+      'secret_key' => '',
+      'payment_flow' => 'iframe',
+      'pay_button_text' => '',
+      'txref_prefix' => 'rave',
+    ] + parent::defaultConfiguration();
   }
 
   /**
@@ -94,7 +109,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
       '#title' => $this->t('Public key'),
       '#description' => $this->t('Enter your Rave Public Key.'),
       '#default_value' => $this->getPublicKey(),
-      '#required' => TRUE
+      '#required' => TRUE,
     ];
 
     $form['secret_key'] = [
@@ -102,7 +117,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
       '#title' => $this->t('Secret key'),
       '#description' => $this->t('Enter your Rave Secret Key.'),
       '#default_value' => $this->getSecretKey(),
-      '#required' => TRUE
+      '#required' => TRUE,
     ];
 
     $form['payment_flow'] = [
@@ -110,7 +125,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
       '#title' => t('Payment flow'),
       '#options' => ['iframe' => t('iFrame'), 'hosted_payment_page' => t('Hosted Payment Page')],
       '#default_value' => $this->getPaymentFlow(),
-      '#required' => FALSE
+      '#required' => FALSE,
     ];
 
     $form['pay_button_text'] = [
@@ -118,7 +133,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
       '#title' => $this->t('Pay button text'),
       '#description' => $this->t('(Optional) Enter a custom pay button text.'),
       '#default_value' => $this->getPayButtonText(),
-      '#required' => FALSE
+      '#required' => FALSE,
     ];
 
     $form['txref_prefix'] = [
@@ -126,7 +141,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
       '#title' => $this->t('Transaction Reference Prefix'),
       '#description' => $this->t('(Optional) Enter a custom transaction reference prefix.'),
       '#default_value' => $this->getTransactionReferencePrefix(),
-      '#required' => FALSE
+      '#required' => FALSE,
     ];
 
     return $form;
@@ -171,7 +186,7 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
         $chargedAmount = $transactionData['charged_amount'];
         $orderAmount = $order->getTotalPrice()->getNumber();
 
-        // Verify charged amount == Order Amount
+        // Verify charged amount == Order Amount.
         if ($orderAmount == $chargedAmount) {
           $payment_storage = $this->entityTypeManager->getStorage('commerce_payment');
           $flwRef = $transactionData['flw_ref'];
@@ -192,23 +207,24 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
           drupal_set_message('Payment was processed');
 
           $logger->info('Payment information saved successfully. Transaction reference: ' . $merchantTransactionReference);
-        } else {
+        }
+        else {
           $logger->warning('Charged Amount is: ' . $chargedAmount . ' while Order Amount: ' . $orderAmount);
           throw new PaymentGatewayException('Charged amount not equal to order amount.');
         }
-      } else {
+      }
+      else {
         throw new PaymentGatewayException('Payment was not successful.');
       }
-    } else {
+    }
+    else {
       throw new PaymentGatewayException('Cannot find Transaction Reference in request.');
     }
   }
 
   /**
-   * Verifies a previous transaction from the Rave payment gateway
-   * @param string $referenceNumber This should be the reference number of the transaction you want to verify.
-   * @return object
-   * */
+   * {@inheritdoc}
+   */
   public function verifyTransaction($referenceNumber): array {
     $this->verifyCount++;
     $logger = \Drupal::logger('commerce_rave');
@@ -218,38 +234,41 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
     $data = [
       'flw_ref' => $referenceNumber,
       'SECKEY' => $this->getSecretKey(),
-      'normalize' => '1'
+      'normalize' => '1',
     ];
     $url = $this->getBaseUrl() . '/flwv3-pug/getpaidx/api/verify';
 
     $client = new Client();
     try {
       $apiRequest = $client->request('POST', $url, ['json' => $data]);
-    } catch (TransferException $e) {
+    }
+    catch (TransferException $e) {
       $logger->error('An error occurred while verifying transaction: ' . $referenceNumber . '. Error: ' . $e->getMessage());
       return [
         'status' => FALSE,
-        'data' => $e->getMessage()
+        'data' => $e->getMessage(),
       ];
     }
 
-    $response = json_decode((string)$apiRequest->getBody(), TRUE);
+    $response = json_decode((string) $apiRequest->getBody(), TRUE);
 
-    // check the status is successful
+    // Check the status is successful.
     if ($response && $response['status'] === "success") {
       if ($response && $response['data'] && $response['data']['status'] === "successful") {
         $logger->notice('Verified a successful transaction. Transaction Reference: ' . $referenceNumber);
         return [
           'status' => TRUE,
-          'data' => $response['data']
+          'data' => $response['data'],
         ];
-      } elseif ($response && $response['data'] && $response['data']['status'] === "failed") {
+      }
+      elseif ($response && $response['data'] && $response['data']['status'] === "failed") {
         $logger->warning('Verified a failed transaction. Transaction Reference: ' . $referenceNumber . '. Response: ' . json_encode($response));
         return [
           'status' => FALSE,
-          'data' => $response['data']
+          'data' => $response['data'],
         ];
-      } else {
+      }
+      else {
         // Handled an undecisive transaction. Probably timed out.
         $logger->warning('Verified an undecisive transaction: ' . json_encode($response) . 'Transaction Reference: ' . $referenceNumber);
         if ($this->verifyCount > 4) {
@@ -257,26 +276,29 @@ class Rave extends OffsitePaymentGatewayBase implements RaveInterface {
           $logger->warning('Transaction verification timed out. Transaction Reference: ' . $referenceNumber);
           return [
             'status' => FALSE,
-            'data' => $response
+            'data' => $response,
           ];
-        } else {
+        }
+        else {
           $logger->notice('Delaying next verification for 3 seconds. Transaction Reference: ' . $referenceNumber);
           sleep(3);
           $logger->notice('Now retrying verification. Transaction Reference: ' . $referenceNumber);
           $this->verifyTransaction($referenceNumber);
         }
       }
-    } else {
+    }
+    else {
       $logger->error('Verify call returned error: ' . json_encode($response) . 'Transaction Reference: ' . $referenceNumber);
       return [
         'status' => FALSE,
-        'data' => $response
+        'data' => $response,
       ];
     }
 
     return [
       'status' => FALSE,
-      'data' => $response
+      'data' => $response,
     ];
   }
+
 }
