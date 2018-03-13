@@ -7,6 +7,7 @@ CONTENTS
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [How It Works](#how-it-works)
+* [Screenshots](#screenshots)
 * [To Do](#to-do)
 * [License](#license)
 * [Credits](#credits)
@@ -73,6 +74,27 @@ For more information about installing Drupal Modules:
     - Site Logo
 * Payment Terminal:
   - The store owner can view the Rave payments.
+
+## Screenshots
+#### 1. Configuration Page
+<p align="center">
+ <img src="https://raw.githubusercontent.com/playmice/commerce_rave/gh-pages/assets/img/configuration_page.png" alt="Configuration page"/>
+</p>
+
+#### 2. Showing Card Payment
+<p align="center">
+ <img src="https://raw.githubusercontent.com/playmice/commerce_rave/gh-pages/assets/img/card_payment.png" alt="Showing Card Payment"/>
+</p>
+
+#### 2. Showing Bank Payment
+<p align="center">
+ <img src="https://raw.githubusercontent.com/playmice/commerce_rave/gh-pages/assets/img/bank_payment.png" alt="Showing Bank Payment"/>
+</p>
+
+#### 2. View Payments in Admin
+<p align="center">
+ <img src="https://raw.githubusercontent.com/playmice/commerce_rave/gh-pages/assets/img/view_payments.png" alt="View Payments in Admin"/>
+</p>
 
 ## To Do
 - [ ] Save Credit Cards data to User account after first use.
