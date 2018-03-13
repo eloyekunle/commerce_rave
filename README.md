@@ -13,7 +13,7 @@ CONTENTS
 * [Credits](#credits)
 
 ## Introduction
-Accept Credit card, Debit card and Bank account payment directly on your store with the Rave payment gateway for WooCommerce.
+Accept Credit card, Debit card and Bank account payment directly on your store with the Rave payment gateway for Drupal Commerce 2.x.
 Take Credit card payments easily and directly on your store.
 
 Signup for an account [here](https://rave.flutterwave.com).
