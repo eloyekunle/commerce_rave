@@ -17,7 +17,7 @@
   },
   "license": "GPL-2.0+",
   "require": {
-    "drupal/commerce_payment": "~8.4"
+    "drupal/commerce": "~2.0"
   },
   "minimum-stability": "dev"
 }
