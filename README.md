@@ -110,4 +110,4 @@ Please see [License File](LICENSE.txt) for more information.
 
 ## Credits
 
-- [Elijah Oyekunle](https://elijahoyekunle.com) - [Twitter](https://twitter.com/elijahoyekunle) - [Drupal.org](https://www.drupal.org/u/elijahoyekunle) - [Github](https://github.com/playmice)
+- [Elijah Oyekunle](https://elijahoyekunle.com) - [Twitter](https://twitter.com/elijahoyekunle) - [Drupal.org](https://www.drupal.org/u/elijahoyekunle) - [Github](https://github.com/eloyekunle)
